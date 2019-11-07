@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_content %}
+<br />
+<h1 style="color:red">SELF INTRODUCTION</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-md-9">
+            <p>I am currently a Year 2 student studying Information Technology at Ngee Ann Polytechnic.<br /><br />
+            Why IT? With technology gradually taking over our lives, I wanted to learn more about it which is why I decided to enroll in this course. <br />
+            Furthermore, I was very intrigued by how our phones, applications, computers worked which also led to my decision in studying Information Technology.</p>
+            <p>Over the past 2 years, I had learned various programming languages such as C#, Python, HTML/CSS/JavaScript, Java (Android), R Language, ASP.NET and more.</p>
+            <p>I am interested in pursuing further studies at a university upon graduation and hope to become an aspiring programmer when I enter the working world.</p>
+        </div>
+        <div class="col-md-3">
+            <img src="{% static "/img/profile.png" %}" height="250" width="250"><img>
+        </div>
+    </div>
+</div>
+<hr size="10" color="black"></hr>
+<div class="resume">
+    <h1 style="color:red">RESUME</h1>
+    <div class="education">
+        <div class="tertiary container">
+            <div class="row">
+                <div class="tertiaryEd col-md-6">
+                    <h3>Ngee Ann Polytechnic</h3>
+                    <ul>
+                        <li>Cumulative GPA: 3.91</li>
+                        <li>APR 2017 - PRESENT</li>
+                        <li>Module Prizes for:
+                            <ol>
+                                <li>Cloud Architecure & Technologies</li>
+                                <li>Web Application Development</li>
+                            </ol>
+                        </li>
+                        <li>Expected to graduate in <b>2020</b></li>
+                    </ul>
+                </div>
+                <div class="tertiaryWork col-md-6">
+                    <h3>Intern</h3>
+                    <ul>
+                        <li>At MQ Spectrum Pte Ltd.</li>
+                        <li>6 months internship as a SDET (Software Development Engineer in Test)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <h3 class="col-md-12">ACHIEVEMENTS</h3>
+                <div class="col-md-12">
+                    <h6>Portfolio 2 Assignment</h6>
+                    <p>Elderly-friendly mobile application to help the elderly socialize and make friends through their hobbies and prevent loneliness / social isolation.</p>
+                </div>
+                <div class="col-md-12">
+                    <h6>Mobile Application Development (Android) Assignment - Taspense</h6>
+                    <p>Functionality: Task Management, Expenses Tracking, Budget Management</p>
+                </div>
+            </div>
+        </div>
+        <div class="secondary container">
+            <h3>Chung Cheng High School (Yishun)</h3>
+            <ul>
+                <li>JAN 2013 - DEC 2016</li>
+                <li>Cambridge 'O' Level Certificate</li>
+                <ul>
+                    <li>L1R2B2 - 8 points (Net)
+                    <li>L1R5 - 11 points (Net)
+                </ul>
+            </ul>
+        </div>
+    </div>
+    <div class="certificatesAndAwards container">
+        <h3>CERTIFICATES AND AWARDS</h3>
+        <div class="row">
+            <div class="col-md-8">
+                <ul>
+                    <li>Module Prize – Web Application Development</li>
+                    <li>Module Prize - Cloud Architecture & Technologies</li>
+                    <li>Director’s List</li>
+                    <li>Director’s List</li>
+                    <li>CDC-CCC Education Merit Award</li>
+                    <li>Edusave Certificate of Academic Achievement</li>
+                    <li>Edusave Good Progress Award</li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                SEMESTER 3 (2018)<br />
+                SEMESTER 3 (2018)<br />
+                SEMESTER 3, 4 (2018)<br />
+                SEMESTER 1, 2 (2017)<br />
+                2017<br />
+                2015, 2016<br />
+                2015<br />
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
