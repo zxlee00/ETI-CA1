@@ -3,7 +3,7 @@
 {% block page_content %}
 <br />
 <div class="col-md-12">
-    <h1 style="color:green">Blog Index</h1>
+    <h1 id="blogpageheader" style="color:green">Blog Index</h1>
     <hr>
     {% for post in posts %}
     <h2><a href="{% url 'blog_detail' post.pk%}">{{ post.title }}</a></h2>
