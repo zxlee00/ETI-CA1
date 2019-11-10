@@ -19,6 +19,32 @@ def test_viewing_home_page():
     assert driver.page_source.find("RESUME")
     driver.quit()
 
+def test_scrolling():
+    driver = webdriver.Chrome()
+    driver.maximize_window()
+    driver.get("http://localhost:8000/projects")
+
+    driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+
+    scrollTop = driver.execute_script("return document.body.scrollTop;")
+    scrollHeight = driver.execute_script("return document.body.scrollHeight;")
+    clientHeight = driver.execute_script("return document.body.clientHeight;")
+    assert scrollTop == scrollHeight - clientHeight
+
+    driver.quit()
+
+def test_redirection():
+    driver = webdriver.Chrome()
+    driver.maximize_window()
+    driver.get("http://localhost:8000/projects")
+
+    blog_link_elem = driver.find_element_by_link_text("Blog")
+    blog_link_elem.click()
+
+    assert WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, "blogpageheader")))
+
+    driver.quit()
+
 def test_viewing_blog_page():
     driver = webdriver.Chrome()
     driver.maximize_window()
