@@ -24,8 +24,7 @@ def test_scrolling():
     driver.maximize_window()
     driver.get("http://localhost:8000/projects")
 
-    scrollingHeight = driver.execute_script("return document.body.scrollHeight;")
-    driver.execute_script("window.scrollTo(0, " + str(scrollingHeight) + ");")
+    driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
 
     scrollTop = driver.execute_script("return document.body.scrollTop;")
     scrollHeight = driver.execute_script("return document.body.scrollHeight;")
