@@ -1,22 +1,27 @@
 {% extends "base.html" %}
 
 {% block page_content %}
-<br />
-<div class="col-md-12">
-    <h1 id="blogpageheader" style="color:green">Blog Index</h1>
-    <hr>
-    {% for post in posts %}
-    <h2><a href="{% url 'blog_detail' post.pk%}">{{ post.title }}</a></h2>
-    <small>
-        {{ post.created_on.date }} |&nbsp;
-        Categories:&nbsp;
-        {% for category in post.categories.all %}
-        <a href="{% url 'blog_category' category.name %}">
-            {{ category.name }}
-        </a>&nbsp;
-        {% endfor %}
-    </small>
-    <p>{{ post.body | slice:":400" }}...</p>
-    {% endfor %}
-</div>
+<head>
+	<title>Blog</title>
+</head>
+<body>
+	<br />
+	<div class="col-md-12">
+		<h1 id="blogpageheader" style="color:green">Blog Index</h1>
+		<hr>
+		{% for post in posts %}
+		<h2><a href="{% url 'blog_detail' post.pk%}">{{ post.title }}</a></h2>
+		<small>
+			{{ post.created_on.date }} |&nbsp;
+			Categories:&nbsp;
+			{% for category in post.categories.all %}
+			<a href="{% url 'blog_category' category.name %}">
+				{{ category.name }}
+			</a>&nbsp;
+			{% endfor %}
+		</small>
+		<p>{{ post.body | slice:":400" }}...</p>
+		{% endfor %}
+	</div>
+</body>
 {% endblock %}
