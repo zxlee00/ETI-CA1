@@ -212,3 +212,86 @@ def test_leaving_comment_without_body():
     assert driver.find_element_by_css_selector("textarea:invalid")
 
     driver.quit()
+
+def test_successful_login():
+    driver = webdriver.Chrome()
+    driver.maximize_window()
+    driver.get("http://localhost:8000/admin")
+
+    username_txtfld_elem = driver.find_element_by_name("username")
+    username_txtfld_elem.send_keys("zxnlee")
+
+    password_txtfld_elem = driver.find_element_by_name("password")
+    password_txtfld_elem.send_keys("P@ssw0rd")
+
+    password_txtfld_elem.send_keys(Keys.RETURN)
+
+    assert WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//h1[text()[contains(., 'Site administration')]]")))
+
+    driver.quit()
+    
+def test_login_without_username():
+    driver = webdriver.Chrome()
+    driver.maximize_window()
+    driver.get("http://localhost:8000/admin")
+
+    username_txtfld_elem = driver.find_element_by_name("username")
+    username_txtfld_elem.send_keys(Keys.RETURN)
+
+    assert driver.find_element_by_css_selector("input:invalid")
+
+    driver.quit()
+
+def test_login_without_password():
+    driver = webdriver.Chrome()
+    driver.maximize_window()
+    driver.get("http://localhost:8000/admin")
+
+    username_txtfld_elem = driver.find_element_by_name("username")
+    username_txtfld_elem.send_keys("zxnlee")
+
+    password_txtfld_elem = driver.find_element_by_name("password")
+
+    password_txtfld_elem.send_keys(Keys.RETURN)
+
+    assert driver.find_element_by_css_selector("input:invalid")
+
+    driver.quit()
+
+def test_login_wrong_username_and_password():
+    driver = webdriver.Chrome()
+    driver.maximize_window()
+    driver.get("http://localhost:8000/admin")
+
+    username_txtfld_elem = driver.find_element_by_name("username")
+    username_txtfld_elem.send_keys("testuser1")
+
+    password_txtfld_elem = driver.find_element_by_name("password")
+    password_txtfld_elem.send_keys("password")
+
+    password_txtfld_elem.send_keys(Keys.RETURN)
+
+    assert driver.page_source.find("Please enter the correct username\
+                                   and password for a staff account. Note\
+                                   that both fields may be case-sensitive.")
+
+    driver.quit()
+
+def test_login_wrong_password():
+    driver = webdriver.Chrome()
+    driver.maximize_window()
+    driver.get("http://localhost:8000/admin")
+
+    username_txtfld_elem = driver.find_element_by_name("username")
+    username_txtfld_elem.send_keys("zxnlee")
+
+    password_txtfld_elem = driver.find_element_by_name("password")
+    password_txtfld_elem.send_keys("password")
+
+    password_txtfld_elem.send_keys(Keys.RETURN)
+
+    assert driver.page_source.find("Please enter the correct username\
+                                   and password for a staff account. Note\
+                                   that both fields may be case-sensitive.")
+
+    driver.quit()
